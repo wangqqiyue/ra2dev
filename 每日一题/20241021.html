@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>20241021</title>
+		<!-- 
+			<link href="highlight/styles/default.css" rel="stylesheet" >
+			<script src="highlight/highlight.min.js"></script>
+			<script> 
+				hljs.initHighlightingOnLoad(); // 初始化
+hljs.initLineNumbersOnLoad();
+			</script>
+			<script>hljs.highlightAll();</script>
+			</script>
+			-->
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+			<!-- and it's easy to individually load additional languages -->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+			<script>hljs.highlightAll();</script>
+
+	</head>
+	<body>
+		<div>
+			<h1>字符串是否以ending结尾</h1>
+			<a href="https://www.codewars.com/kata/51f2d1cafc9c0f745c00037d/train/javascript">字符串是否以ending结尾</a>
+			<p>题目描述</p>
+			<pre>
+	请完成函数 solution(str, ending)
+    该函数传入两个字符串作为参数, 若字符串1以字符串2结尾, 则返回true, 否则返回false.
+
+举例:
+	<code>
+	solution('abc', 'bc') // returns true
+	solution('abc', 'd') // returns false
+	</code>
+			</pre>
+	<p> 题解</p>
+	<pre>
+ 	<code>
+    function solution(str, ending){
+  		return str.endsWith(ending);
+	}
+    </code>
+	</pre>
+		</div>
+	</body>
+</html>
