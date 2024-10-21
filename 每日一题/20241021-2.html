@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+		<head>
+				<meta charset="UTF-8">
+				<title>20241021</title>
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+				<!-- and it's easy to individually load additional languages -->
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+				<script>hljs.highlightAll();</script>
+
+		</head>
+		<body>
+				<div>
+						<h1>验证回文串</h1>
+						<a href="https://leetcode.cn/problems/valid-palindrome/description/">力扣125.验证回文串</a>
+						<h2>题目描述</h2>
+						<pre>
+	如果在将所有大写字符转换为小写字符、并移除所有非字母数字字符之后，短语正着读和反着读都一样。则可以认为该短语是一个 回文串 。
+
+	字母和数字都属于字母数字字符。
+
+	给你一个字符串 s，如果它是 回文串 ，返回 true ；否则，返回 false 。
+
+示例 1：
+<code>
+输入: s = "A man, a plan, a canal: Panama"
+输出：true
+解释："amanaplanacanalpanama" 是回文串。
+</code>
+
+示例 2：
+<code>
+输入：s = "race a car"
+输出：false
+解释："raceacar" 不是回文串。
+</code>
+
+示例 3：
+</code>
+输入：s = " "
+输出：true
+解释：在移除非字母数字字符之后，s 是一个空字符串 "" 。
+由于空字符串正着反着读都一样，所以是回文串。
+</code>
+						</pre>
+						<h2> 题解</h2>
+						<p>	第一次解答的答案,比较复杂，想遍历一次就解决问题。</p>
+						<pre>
+	<code>
+class Solution {
+public:
+	bool isPalindrome(string s) {
+		int left,right;
+		int n = s.length();
+
+		for(left=0,right=n-1;left&ltright;left++,right--){
+						   while(left&lt;n &amp;&amp; !isalnum(s[left]) ){
+						   left++;
+						   }
+						   while(right &gt;0 &amp;&amp; !isalnum(s[right])){
+				right--;
+			}
+			if(left &gt; =n||right &lt; 0||left &gt; =right){
+				break;
+			}
+			cout &lt;&lt; s[left]&lt; "," &lt;&lt; s[right] &lt;&lt; endl;
+			if(s[left]!=s[right]){
+				if(isalpha(s[left]) &amp;&amp; (s[left]+32==s[right] || s[left]==s[right]+32)){
+					continue;
+				}
+				return false;
+			}
+		  }
+
+		  return true;
+	   }
+};
+	</code>
+						</pre>
+
+						<p>第二次，用了C++自带的lower,isalnum以及STL库函数reverse,和string的迭代器begin(),end()</p>
+						<pre>
+<code>
+class Solution {
+public:
+	bool isPalindrome(string s) {
+		string s1,s2;
+		for(char &amp;c:s){
+			if(isalnum(c)){
+				s1 += tolower(c);
+			}
+		}
+		s2 = s1;
+		reverse(s1.begin(),s1.end());
+
+
+		return s1 == s2;
+	}
+};
+</code>
+						</pre>
+
+						<p>第三次，是题解的方法，创建新字符串的时候，直接用反向迭代器rbegin(),rend(),省去一次reverse</p>
+
+						<pre>
+<code>
+class Solution {
+public:
+	bool isPalindrome(string s) {
+		string s1;
+		for(char &amp;c:s){
+			if(isalnum(c)){
+				s1 += tolower(c);
+			}
+		}
+		string s2(s1.rbegin(),s1.rend());
+
+		return s1 == s2;
+	}
+};
+</code>
+
+						</pre>
+				</div>
+		</body>
+</html>
