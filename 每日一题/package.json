@@ -1,0 +1,14 @@
+{
+  "name": "daily_problem",
+  "version": "1.0.0",
+  "description": "每日一题————基于nodejs的编程题解提交网站",
+  "main": "back.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "italian cook",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}

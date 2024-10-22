@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit Code</title>
+    <style>
+        /* 添加CSS样式 */
+        textarea {
+            width: 100%; /* 使textarea宽度占满整个容器 */
+            height: 150px; /* 设置textarea的高度 */
+            resize: vertical; /* 允许垂直方向上的拖动调整大小 */
+        }
+        input[type="text"], input[type="url"], button {
+            width: 100%; /* 使输入框宽度占满整个容器 */
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        button {
+            color: green;
+            background-color: white; /* 设置按钮背景颜色 */
+            border: 2px solid green; /* 设置边框颜色和宽度 */
+            padding: 10px 20px; /* 设置按钮内边距 */
+            font-size: 16px; /* 设置字体大小 */
+            border-radius: 5px; /* 设置边框圆角 */
+            cursor: pointer; /* 设置鼠标悬停时的光标样式 */
+            transition: all 0.3s ease; /* 设置过渡效果 */
+        }
+
+        button:hover {
+            background-color: green; /* 鼠标悬停时的背景颜色 */
+            color: white; /* 鼠标悬停时的文字颜色 */
+            border: 2px solid white; /* 鼠标悬停时的边框颜色 */
+        }
+    </style>
+</head>
+<body>
+    <h1>每日一题</h1>
+    <form id="submitForm">
+        <label for="title">文章标题:</label>
+        <input type="text" id="title" name="title" required>
+        
+        <label for="author">作者:</label>
+        <input type="text" id="author" name="author" required>
+
+        <label for="link">原题链接:</label>
+        <input type="text" id="link" name="link" required>
+
+        <label for="link_description">链接描述:</label>
+        <input type="text" id="link_description" name="link_description" required>
+
+        <label for="problem_description">题目要求描述:</label>
+        <textarea id="problem_description" name="problem_description" required></textarea>
+        
+        <label for="solutionText">我的题解思路:</label>
+        <textarea id="solutionText" name="solutionText" required></textarea>
+        
+        <label for="solutionCode">我的题解代码:</label>
+        <textarea id="solutionCode" name="solutionCode" required></textarea>
+        
+        <button id="button" type="button" onclick="submitForm()">提交到服务器</button>
+    </form>
+    <script>
+        function submitForm() {
+            const formData = {
+                title: document.getElementById('title').value,
+                author: document.getElementById('author').value,
+                link: document.getElementById('link').value,
+                linkDescription: document.getElementById('link_description').value,
+                problemDescription: document.getElementById('problem_description').value,
+                solutionText: document.getElementById('solutionText').value,
+                solutionCode: document.getElementById('solutionCode').value
+            };
+
+            fetch('/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                alert('提交成功! 已生成网页文件: ' + data.link + '\n是否继续?' );
+                window.location.href = data.link;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
