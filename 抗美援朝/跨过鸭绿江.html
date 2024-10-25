@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雄赳赳，气昂昂，横渡鸭绿江。</title>
+    <style>
+        /* 你可以在这里设置样式来调整视频的大小 */
+        .video-container {
+            width: 200px;
+            /* 视频宽度设置为640px，或者你想要的大小 */
+            overflow: hidden;
+            position: relative;
+        }
+
+        video {
+            max-width: 800px;
+            margin: 30px;
+        }
+        .big {
+            font-size: 22px;
+            margin: 20px;
+        }
+        .small {
+            font-size: 18px;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>歌曲：中国人民志愿军战歌</h1>
+    <p>歌词：</p>
+    <p>雄赳赳，气昂昂，跨过鸭绿江。</p>
+    <p>保和平，卫祖国，就是保家乡</p>
+    <p>中国好儿女，齐心团结紧。</p>
+    <P>抗美援朝，打败美帝野心狼！</P>
+
+    <!-- 音频播放器 -->
+    <audio controls autoplay>
+        <source src="中国人民志愿军战歌.m4a" type="audio/mpeg">
+        您的浏览器不支持音频元素。
+    </audio>
+
+    <div class="big">
+        <h2>打的一拳开，免得百拳来</h2>
+        <pre>
+毛主席说:
+        如果我们对朝鲜问题置之不理，美国必然得寸进尺，走日本侵略中国的老路，甚至比日本搞得还凶。
+        它要把三把尖刀插在中国的身上：
+                从朝鲜一把刀插在我国的头上，从台湾一把刀插在我国的腰上，从越南一把刀插在我国的脚下。
+                天下有变，它就从三个方向向我们进攻。那我们就被动了。
+
+        所以，打得一拳开，免得百拳来。
+        抗美援朝，就是保家卫国。
+        </pre>
+    </div>
+
+    <p>视频链接:
+        <a href="https://www.bilibili.com/video/BV1iT4y1b75p">一直打到完全胜利！</a>
+    </p>
+    <!-- 视频播放器 -->
+    <video controls autoplay>
+        <source src="一直打到完全胜利.mp4" type="video/mp4">
+        您的浏览器不支持视频元素。
+    </video>
+
+    <script>
+        // 页面加载完成后尝试播放音频
+        window.addEventListener('load', function () {
+            var audio = document.querySelector('audio');
+            if (audio) {
+                audio.play().catch(function (error) {
+                    console.log('音频播放失败:', error);
+                });
+            }
+        });
+    </script>
+
+    <div class="small">
+        记于2024年10月25日，谨以此纪念抗美援朝出国作战74周年。
+    </div>
+</body>
+
+</html>

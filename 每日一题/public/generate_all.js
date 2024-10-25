@@ -11,7 +11,7 @@ fs.readdir('.', (err, files) => {
     // 过滤出HTML文件
     const htmlFiles = files.filter(file => path.extname(file) === '.html');
 
-    // 创建HTML页面
+	    // 创建HTML页面
     const htmlContent = `
 <!DOCTYPE html>
 <html lang="en">
@@ -42,6 +42,7 @@ fs.readdir('.', (err, files) => {
     <ul>
         ${htmlFiles.map(file => `<li><a href="${file}">${file}</a></li>`).join('')}
     </ul>
+    <a href="daily_problem/edit_problem.html">写题解</a>
 </body>
 </html>
     `;
