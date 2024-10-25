@@ -49,7 +49,9 @@ app.post("/submit", (req, res) => {
 						<a href="${link}">${link_description}</a>
 						<p>题目描述</p>
 						<pre>
+						<code>
    ${problem_description}
+   </code>
 						</pre>
 						<p> 题解</p>
 						<pre>

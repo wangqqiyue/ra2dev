@@ -1,3 +1,20 @@
 Server is running on port 3000
 HTML file created successfully.
 HTML file created successfully.
+node[42987]: ../src/node.cc:701:void node::ResetStdio(): Assertion `!(err != 0) || (err == -1 && (*__errno_location ()) == 1)' failed.
+ 1: 0x7f0adda16cb8 node::Abort() [/lib/x86_64-linux-gnu/libnode.so.108]
+ 2: 0x7f0adda16d36  [/lib/x86_64-linux-gnu/libnode.so.108]
+ 3: 0x7f0add9cd1d6  [/lib/x86_64-linux-gnu/libnode.so.108]
+ 4: 0x7f0add9cd2d0 node::SignalExit(int, siginfo_t*, void*) [/lib/x86_64-linux-gnu/libnode.so.108]
+ 5: 0x7f0adfd72050  [/lib/x86_64-linux-gnu/libc.so.6]
+ 6: 0x7f0adfe3ee26 epoll_wait [/lib/x86_64-linux-gnu/libc.so.6]
+ 7: 0x7f0adcfd4165  [/lib/x86_64-linux-gnu/libuv.so.1]
+ 8: 0x7f0adcfc09e4 uv_run [/lib/x86_64-linux-gnu/libuv.so.1]
+ 9: 0x7f0add94387b node::SpinEventLoop(node::Environment*) [/lib/x86_64-linux-gnu/libnode.so.108]
+10: 0x7f0adda5fc78 node::NodeMainInstance::Run(int*, node::Environment*) [/lib/x86_64-linux-gnu/libnode.so.108]
+11: 0x7f0adda6008c node::NodeMainInstance::Run() [/lib/x86_64-linux-gnu/libnode.so.108]
+12: 0x7f0add9ce8c9 node::LoadSnapshotDataAndRun(node::SnapshotData const**, node::InitializationResult const*) [/lib/x86_64-linux-gnu/libnode.so.108]
+13: 0x7f0add9d2365 node::Start(int, char**) [/lib/x86_64-linux-gnu/libnode.so.108]
+14: 0x7f0adfd5d24a  [/lib/x86_64-linux-gnu/libc.so.6]
+15: 0x7f0adfd5d305 __libc_start_main [/lib/x86_64-linux-gnu/libc.so.6]
+16: 0x5640f4d0e031 _start [node]
